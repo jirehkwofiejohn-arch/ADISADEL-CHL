@@ -1,0 +1,631 @@
+
+/* ---------- VARIABLES ---------- */
+:root {
+    --black: #080808;
+    --ink: #000000;
+    --panel: #151515;
+    --white: #f5f5f5;
+    --silver: #c0c0c0;
+    --gold: #d6b45a;
+    --text: #eeeeee;
+    --muted: #aaaaaa;
+    --line: rgba(255, 255, 255, 0.15);
+
+    --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --body: "Barlow", Arial, sans-serif;
+}
+
+/* ---------- GLOBAL RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--silver);
+    outline-offset: 3px;
+}
+
+/* ---------- SNOW ---------- */
+#snow {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* ---------- HEADER ---------- */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 5%;
+    background: var(--ink);
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+.logo span,
+.footer span {
+    color: var(--silver);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    padding-bottom: 4px;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--silver);
+    border-bottom-color: var(--silver);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+    padding: 90px 7%;
+    background: linear-gradient(110deg, #050505, #202020);
+}
+
+/* Zebra-inspired decorative stripes */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 48%;
+    height: 130%;
+    opacity: 0.55;
+    transform: skewX(-12deg);
+    background: repeating-linear-gradient(
+        135deg,
+        transparent 0px,
+        transparent 25px,
+        rgba(255, 255, 255, 0.09) 25px,
+        rgba(255, 255, 255, 0.09) 38px,
+        transparent 38px,
+        transparent 65px
+    );
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    right: 43%;
+    top: 12%;
+    bottom: 12%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.welcome {
+    color: var(--silver);
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.motto {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 24px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 18px;
+}
+
+.description {
+    max-width: 52ch;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+.register-btn {
+    display: inline-block;
+    background: var(--white);
+    color: var(--ink);
+    font-weight: 700;
+    padding: 15px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.register-btn:hover {
+    background: var(--silver);
+    transform: translateY(-3px);
+}
+
+/* ---------- HERO RIGHT SIDE ---------- */
+.hero-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.hero-logo {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.18));
+}
+
+.scoreboard {
+    width: 100%;
+    max-width: 440px;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    border-top: 5px solid var(--silver);
+    border-radius: 8px;
+    padding: 16px 20px 20px;
+    text-align: center;
+}
+
+.sb-title {
+    font-weight: 600;
+    color: var(--silver);
+    margin-bottom: 10px;
+}
+
+.sb-clock {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.sb-clock div {
+    background: #202020;
+    border-radius: 6px;
+    padding: 10px 4px 8px;
+}
+
+.sb-clock b {
+    display: block;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 54px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.sb-clock span {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* Countdown completion */
+.scoreboard.live .sb-clock {
+    display: none;
+}
+
+.sb-live {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 44px;
+    color: var(--white);
+}
+
+/* ---------- HIGHLIGHT STRIP ---------- */
+.strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--ink);
+    border-bottom: 1px solid var(--line);
+}
+
+.strip > div {
+    padding: 30px 7%;
+    border-left: 1px solid var(--line);
+}
+
+.strip > div:first-child {
+    border-left: none;
+}
+
+.strip h3 {
+    font-family: var(--display);
+    font-size: 24px;
+    color: var(--silver);
+}
+
+.strip p {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* ---------- OVERVIEW ---------- */
+.overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    padding: 70px 7%;
+    background: var(--panel);
+}
+
+.overview h2 {
+    font-family: var(--display);
+    font-size: 40px;
+    color: var(--white);
+    margin-bottom: 14px;
+}
+
+.overview p {
+    max-width: 55ch;
+}
+
+.match-sheet {
+    border-top: 1px solid var(--line);
+}
+
+.match-sheet div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.match-sheet dt {
+    color: var(--muted);
+}
+
+.match-sheet dd {
+    font-weight: 600;
+    text-align: right;
+}
+
+/* ---------- MUSIC BUTTON ---------- */
+.music-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 20;
+    background: var(--ink);
+    color: var(--white);
+    border: 1px solid var(--silver);
+    border-radius: 30px;
+    padding: 11px 20px;
+    font: 600 15px var(--body);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.music-btn:hover {
+    background: #292929;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+    background: var(--ink);
+    text-align: center;
+    padding: 40px 15px 90px;
+}
+
+.footer h2 {
+    font-family: var(--display);
+    font-size: 32px;
+    margin-bottom: 6px;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.copyright {
+    color: #888888;
+    font-size: 14px;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 800px) {
+    .header {
+        flex-direction: column;
+        gap: 12px;
+        position: static;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 60px 6%;
+        gap: 40px;
+    }
+
+    .hero::after {
+        display: none;
+    }
+
+    .hero::before {
+        width: 100%;
+        opacity: 0.3;
+    }
+
+    .strip {
+        grid-template-columns: 1fr;
+    }
+
+    .strip > div {
+        border-left: none;
+        border-top: 1px solid var(--line);
+        padding: 22px 6%;
+    }
+
+    .strip > div:first-child {
+        border-top: none;
+    }
+
+    .overview {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 50px 6%;
+    }
+
+    .sb-clock b {
+        font-size: 42px;
+    }
+}
+
+/* =================================
+   CHL 2026 REGISTRATION PAGE
+================================= */
+
+/* REGISTRATION INTRODUCTION */
+
+.registration {
+    max-width: 850px;
+    margin: 65px auto 35px;
+    padding: 45px 35px;
+    background: linear-gradient(145deg, #151515, #080808);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.registration::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--silver);
+}
+
+.registration-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.registration-heading h1 {
+    font-family: var(--display);
+    font-size: 48px;
+    color: var(--white);
+    margin: 12px 0;
+    text-transform: uppercase;
+}
+
+.registration-heading h2 {
+    font-family: var(--display);
+    font-size: 38px;
+    color: var(--white);
+    margin: 12px 0;
+    text-transform: uppercase;
+}
+
+.registration-heading p {
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 10px auto;
+}
+
+.welcome {
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+
+/* PAYMENT SECTION */
+
+.payment-section {
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 40px 35px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.payment-section h2 {
+    font-family: var(--display);
+    font-size: 38px;
+    color: var(--white);
+    margin: 12px 0;
+    text-transform: uppercase;
+}
+
+.payment-section h1 {
+    font-family: var(--display);
+    font-size: 52px;
+    color: var(--gold);
+    margin: 20px 0 5px;
+}
+
+.payment-section > p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.payment-method {
+    text-align: left;
+    padding: 22px;
+    margin-top: 20px;
+    background: var(--black);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--silver);
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.payment-method:hover {
+    border-left-color: var(--gold);
+}
+
+.payment-method h3 {
+    font-family: var(--display);
+    font-size: 25px;
+    color: var(--white);
+    margin-bottom: 12px;
+}
+
+.payment-method p {
+    color: var(--muted);
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.payment-note {
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+
+/* GOOGLE FORM SECTION */
+
+.google-form-section {
+    max-width: 850px;
+    margin: 50px auto 70px;
+    padding: 35px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.google-form-section iframe {
+    display: block;
+    width: 100%;
+    min-height: 1100px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    margin-top: 25px;
+}
+
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 800px) {
+
+    .registration {
+        margin: 40px 18px 30px;
+        padding: 35px 20px;
+    }
+
+    .registration-heading h1 {
+        font-size: 38px;
+    }
+
+    .registration-heading h2 {
+        font-size: 32px;
+    }
+
+    .payment-section {
+        margin: 30px 18px;
+        padding: 30px 20px;
+    }
+
+    .payment-section h1 {
+        font-size: 44px;
+    }
+
+    .google-form-section {
+        margin: 35px 18px;
+        padding: 25px 15px;
+    }
+
+    .google-form-section iframe {
+        min-height: 1200px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .registration-heading h1 {
+        font-size: 32px;
+    }
+
+    .payment-section h2 {
+        font-size: 32px;
+    }
+
+    .payment-method {
+        padding: 17px;
+    }
+
+}
+
+
+
