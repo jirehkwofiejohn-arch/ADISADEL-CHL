@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Holiday League 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Untitled-1.css">
+</head>
+<body>
+
+    <!-- FALLING SNOW (drawn by script.js) -->
+    <canvas id="snow" aria-hidden="true"></canvas>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+                <img src="images.jpg"
+         alt="Adisadel College crest"
+         style="width: 48px; height: 50px; object-fit: contain;">
+            ADISCO <span>2026</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="fixtures.html">Fixtures</a></li>
+                <li><a href="standings.html">Standings</a></li>
+                <li><a href="rules.html">Rules</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <p class="welcome">Welcome to the Santa_28 page.</p>
+                <h1>Christmas Holiday League 2026</h1>
+                <p class="motto">Vel Primus Vel Cum Primis</p>
+                <p class="description">
+                    The eFootball Mobile tournament bringing together the best players
+                    from Adisadel College and other high school competitors this
+                    Christmas holiday.
+                </p>
+                <a href="register.html" class="register-btn">Register now</a>
+            </div>
+
+            <div class="hero-side">
+                <img class="hero-logo" src="Logo.jpg" alt="Adisadel CHL 2026 logo">
+
+                <!-- SCOREBOARD COUNTDOWN (edit the date in script.js) -->
+                <div class="scoreboard" id="scoreboard" aria-live="off">
+                    <p class="sb-title">Kickoff in</p>
+                    <div class="sb-clock">
+                        <div><b id="cd-days">00</b><span>Days</span></div>
+                        <div><b id="cd-hours">00</b><span>Hours</span></div>
+                        <div><b id="cd-mins">00</b><span>Mins</span></div>
+                        <div><b id="cd-secs">00</b><span>Secs</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HIGHLIGHTS -->
+        <section class="strip" aria-label="Tournament highlights">
+            <div>
+                <h3>Open registration</h3>
+                <p>Join the competition for 15 cedis.</p>
+            </div>
+            <div>
+                <h3>Ghana and worldwide(if possible)</h3>
+                <p>Players from any school can enter.</p>
+            </div>
+            <div>
+                <h3>1st and 2nd place prizes</h3>
+                <p>Recognition for our top players.</p>
+            </div>
+        </section>
+
+        <!-- OVERVIEW -->
+        <section class="overview">
+            <div class="overview-text">
+                <h2>Tournament overview</h2>
+                <p>
+                    Adisco CHL 2026 is an online eFootball Mobile competition designed by
+                    Santa_28 gamers. Everyone is invited tho'
+                </p>
+            </div>
+
+            <dl class="match-sheet">
+                <div><dt>Game</dt><dd>eFootball Mobile</dd></div>
+                <div><dt>Mode</dt><dd>Online tournament match</dd></div>
+                <div><dt>Duration</dt><dd>2–3 weeks</dd></div>
+                <div><dt>Entry</dt><dd>15 cedis</dd></div>
+            </dl>
+        </section>
+
+    </main>
+
+    <!-- MUSIC PLAYER (floats bottom-left) -->
+    <button id="musicButton" class="music-btn" type="button">▶ Play CHL music</button>
+    <audio id="chlSong" src="Mixed-audio.mp3"loop></audio>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <h2>CHL <span>2026</span></h2>
+        <p>Vel Primus Vel Cum Primis.</p>
+        <p class="copyright">© 2026 Christmas Holiday League. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
